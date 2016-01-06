@@ -1,24 +1,23 @@
-%p#notice= notice
+.container{style: 'padding-top: 20px !important'}
+  .col-md-3
+  .col-md-6
+    .thumbnail
+      %img{:alt => "image", :src => @shop.image}/
+      .caption
+        %h3
+          = @shop.name
+        %p
+          = @shop.address
+        %p
+          = @shop.description
+        = link_to 'Edit', edit_shop_path(@shop), class: 'btn btn-default'
+        = link_to 'Back', shops_path, class: 'btn btn-default'
+  .col-md-3
 
-%p
-  %b Name:
-  = @shop.name
-%p
-  %b Address:
-  = @shop.address
-%p
-  %b Image:
-  = @shop.image
-%p
-  %b Description:
-  = @shop.description
-%p
-  %b Latitude:
-  = @shop.latitude
-%p
-  %b Longitude:
-  = @shop.longitude
 
-= link_to 'Edit', edit_shop_path(@shop)
-\|
-= link_to 'Back', shops_path
+
+
+
+
+
+

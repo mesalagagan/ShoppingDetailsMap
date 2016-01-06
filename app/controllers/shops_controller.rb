@@ -5,6 +5,11 @@ class ShopsController < ApplicationController
   # GET /shops.json
   def index
     @shops = Shop.all
+    @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
+      marker.lat shop.latitude
+      marker.lng shop.longitude
+      marker.infowindow render_to_string(:partial => "/shops/map_details", :locals => {:object => shop})
+    end
   end
 
   # GET /shops/1

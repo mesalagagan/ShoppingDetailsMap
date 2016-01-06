@@ -1,28 +1,32 @@
-= form_for @shop do |f|
-  - if @shop.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@shop.errors.count, "error")} prohibited this shop from being saved:"
-      %ul
-        - @shop.errors.full_messages.each do |msg|
-          %li= msg
+.container
+  .row
+    .col-md-3
+    .col-md-6
+      = form_for @shop do |form|
+        - if @shop.errors.any?
+          #error_explanation
+            %h2= "#{pluralize(@shop.errors.count, "error")} prohibited this shop from being saved:"
+            %ul
+              - @shop.errors.full_messages.each do |msg|
+                %li= msg
+        .form-group
+          = form.label :name
+          = form.text_field :name, class: 'form-control', required: true
+        .form-group
+          = form.label :address
+          = form.text_field :address, class: 'form-control', required: true
+        .form-group
+          = form.label :image
+          = form.file_field :image, class: 'form-control', required: true
+        .form-group
+          = form.label :description
+          = form.text_area :description, class: 'form-control', required: true
+        .form-group
+          = form.hidden_field :latitude, class: 'form-control'
+        .form-group
+          = form.hidden_field :longitude, class: 'form-control'
+        .form-group
+          %button.btn.btn-default{:type => "submit"} Submit
+          %a.btn.btn-default{:type => "button", :href => shops_path} Cancel
+    .col-md-3
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :image
-    = f.text_field :image
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :latitude
-    = f.text_field :latitude
-  .field
-    = f.label :longitude
-    = f.text_field :longitude
-  .actions
-    = f.submit 'Save'

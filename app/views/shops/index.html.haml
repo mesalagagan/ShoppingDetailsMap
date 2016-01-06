@@ -1,31 +1,42 @@
-%h1 Listing shops
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Address
-      %th Image
-      %th Description
-      %th Latitude
-      %th Longitude
-      %th
-      %th
-      %th
-
-  %tbody
-    - @shops.each do |shop|
-      %tr
-        %td= shop.name
-        %td= shop.address
-        %td= shop.image
-        %td= shop.description
-        %td= shop.latitude
-        %td= shop.longitude
-        %td= link_to 'Show', shop
-        %td= link_to 'Edit', edit_shop_path(shop)
-        %td= link_to 'Destroy', shop, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Shop', new_shop_path
+.container-fluid
+  .row
+    .col-md-3
+    .col-md-6
+      %h1
+        List Of Registered Shops
+      %span
+        = link_to 'New Shop', new_shop_path, class: 'btn btn-default pull-right'
+    .col-md-3
+  .row
+    .col-md-3
+    .col-md-6
+      %table.table.table-hover
+        %thead
+          %tr
+            %th Name
+            %th Address
+            %th Image
+            %th Description
+            %th Latitude
+            %th Longitude
+            %th Show
+            %th Edit
+            %th Destroy
+        %tbody
+          - @shops.each do |shop|
+            %tr
+              %td= shop.name
+              %td= shop.address
+              %td= shop.image
+              %td= shop.description
+              %td= shop.latitude
+              %td= shop.longitude
+              %td= link_to 'Show', shop
+              %td= link_to 'Edit', edit_shop_path(shop)
+              %td= link_to 'Destroy', shop, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    .col-md-3
+  .row
+    .col-md-3
+    .col-md-6
+      = render partial: 'map'
+    .col-md-3
