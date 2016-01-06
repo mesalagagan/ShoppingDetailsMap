@@ -14,6 +14,13 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+
+# Images - Assets
+gem 'carrierwave'
+gem 'carrierwave_direct'
+gem 'fog'
+
+# Converted erb2haml
 gem "erb2haml", :group => :development
 
 # Database
@@ -21,6 +28,11 @@ gem 'pg'
 
 # Haml Templating Language
 gem 'haml-rails'
+
+# Ruby geocoding solution.
+gem 'geocoder'
+
+gem 'gmaps4rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
